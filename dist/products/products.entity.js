@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Products = void 0;
+const area_entity_1 = require("./../area/area.entity");
 const warehouse_entity_1 = require("./../warehouse/warehouse.entity");
 const typeorm_1 = require("typeorm");
 let Products = class Products {
@@ -39,6 +40,11 @@ __decorate([
     typeorm_1.JoinColumn(),
     __metadata("design:type", warehouse_entity_1.Warehouse)
 ], Products.prototype, "warehouse", void 0);
+__decorate([
+    typeorm_1.ManyToOne(() => area_entity_1.Area, Area => Area.products),
+    typeorm_1.JoinColumn(),
+    __metadata("design:type", area_entity_1.Area)
+], Products.prototype, "area", void 0);
 Products = __decorate([
     typeorm_1.Entity()
 ], Products);

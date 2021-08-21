@@ -14,12 +14,6 @@ var AppService = /** @class */ (function () {
     AppService.prototype.getHello = function () {
         return 'Hello World!';
     };
-    AppService.prototype.getInventorry = function () {
-        return 'You have infinity iTEMS';
-    };
-    AppService.prototype.getProducts = function () {
-        return 'you have products';
-    };
     AppService = __decorate([
         common_1.Injectable()
     ], AppService);

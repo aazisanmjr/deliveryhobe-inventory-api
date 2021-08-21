@@ -28,14 +28,24 @@ let ProductsService = class ProductsService {
         this.sourcepriceRepo = sourcepriceRepo;
     }
     async getProductAll() {
-        const users = await typeorm_2.getRepository(products_entity_1.Products)
-            .createQueryBuilder("user")
-            .getMany();
-        return users;
+        return this.productRepo.find();
     }
-    async getOne(id) {
-        return this.warehouseRepo.findOne(id, {
-            relations: ['products', 'area', 'sourceprice'],
+    async filterProductsByWarehouse(id) {
+        return this.productRepo.find({
+            where: { warehouse: { id: id } },
+        });
+    }
+    async filterProductsByArea(id) {
+        return this.productRepo.find({
+            where: { area: { id: id } },
+        });
+    }
+    async SearchProducts(query) {
+        return this.productRepo.find({
+            where: [
+                { name: typeorm_2.ILike(`%${query}%`) },
+                { description: typeorm_2.ILike(`%${query}%`) },
+            ],
         });
     }
 };

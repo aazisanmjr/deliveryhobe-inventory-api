@@ -19,15 +19,6 @@ let AppController = class AppController {
     getHello() {
         return this.appService.getHello();
     }
-    getInventorry() {
-        return this.appService.getInventorry();
-    }
-    getProducts() {
-        return this.appService.getProducts();
-    }
-    getwarehouse() {
-        return 'noooo ware house';
-    }
 };
 __decorate([
     common_1.Get('/'),
@@ -35,24 +26,6 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
-__decorate([
-    common_1.Get('/inventorry'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getInventorry", null);
-__decorate([
-    common_1.Get('/products'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getProducts", null);
-__decorate([
-    common_1.Get('/warehouse'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getwarehouse", null);
 AppController = __decorate([
     common_1.Controller(),
     __metadata("design:paramtypes", [app_service_1.AppService])

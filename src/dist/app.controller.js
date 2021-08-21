@@ -15,31 +15,9 @@ var AppController = /** @class */ (function () {
     AppController.prototype.getHello = function () {
         return this.appService.getHello();
     };
-    // @Get('/setallget')
-    // setSeed(){
-    //   return this.appService.setSeed();
-    // }
-    AppController.prototype.getInventorry = function () {
-        return this.appService.getInventorry();
-    };
-    AppController.prototype.getProducts = function () {
-        return this.appService.getProducts();
-    };
-    AppController.prototype.getwarehouse = function () {
-        return 'noooo ware house';
-    };
     __decorate([
         common_1.Get('/')
     ], AppController.prototype, "getHello");
-    __decorate([
-        common_1.Get('/inventorry')
-    ], AppController.prototype, "getInventorry");
-    __decorate([
-        common_1.Get('/products')
-    ], AppController.prototype, "getProducts");
-    __decorate([
-        common_1.Get('/warehouse')
-    ], AppController.prototype, "getwarehouse");
     AppController = __decorate([
         common_1.Controller()
     ], AppController);

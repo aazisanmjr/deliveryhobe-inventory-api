@@ -31,7 +31,7 @@ var AppModule = /** @class */ (function () {
                 products_module_1.ProductsModule,
                 typeorm_1.TypeOrmModule.forRoot({
                     type: 'postgres',
-                    url: 'postgres://wwnpaxiofxyenv:40f419660a3a79d06d8819ccb7bfb2306097792b810e5e7fc073c49e24d76be8@ec2-18-211-97-89.compute-1.amazonaws.com:5432/dcu6fbbleieoo5',
+                    url: process.env.DATABASE_URL,
                     autoLoadEntities: true,
                     synchronize: true,
                     entities: [products_entity_1.Products, inventory_entity_1.Inventory, warehouse_entity_1.Warehouse, area_entity_1.Area],

@@ -62,23 +62,27 @@ var ProductsService = /** @class */ (function () {
     }
     // async setSeed() {
     //     const warehouse =this.warehouseRepo.create({
-    //     name:'Mohammedpur Warehouse',
+    //     name:'Mirpur Warehouse',
     //     contact:'023828124',
     //     address:'House#, Road#5,  , Dhanmondi, Dhaka',
     //     })
-    //     const area1 = this.areaRepo.create({name:'Dhannmondi'})
-    //     await this.areaRepo.save(area1)
-    //     const product1 = this.productRepo.create({name:'BIC Lighter (Small)', price:60,description:'Child-resistant, Safe and reliable, 100% Quality Inspected Up to 2 times the lights vs. the next full size leading brand Every BIC lighter undergoes more than 50 separate, automatic quality checks during the manufacturing process Assortment of colors may vary No lighter is child-proof. There is no substitute for proper adult supervision. Read all warnings before using this product. Flick it Safely.',inventory:32 })
+    //     const area1 = this.areaRepo.create({name:'Mirpur'})
+    //     const product1 = this.productRepo.create({name:'Sunlite Gas Lighter S', price:15,description:'Smoking is injurious to health This product is not to be  sold to anyone under the age of 18.',inventory:12 })
     //     await  this.productRepo.save(product1)
-    //     const sourceprice1 = this.sourcepriceRepo.create({sourcePrice:55})
+    //     const sourceprice1 = this.sourcepriceRepo.create({sourcePrice:12})
     //     sourceprice1.product = product1
     //     await  this.sourcepriceRepo.save(sourceprice1)
-    //     const product2 = this.productRepo.create({name:'Metal Grinder- Large', price:800,description:'This Designer grinder will help grind away anything you need with ease Possible uses: 1. Paper Shredder 2. Grinding Masala & Spices',inventory:21})
+    //     const product2 = this.productRepo.create({name:'555', price:450,description:`Brand Family: 505
+    //         Product Type: Cigarettes
+    //         Stick Count: 20
+    //         Noncompliant Health Warning Label: Not assessed`,inventory:31})
     //     await  this.productRepo.save(product2)
     //     const sourceprice2 = this.sourcepriceRepo.create({sourcePrice:700})
     //     sourceprice1.product = product2
     //     await  this.sourcepriceRepo.save(sourceprice2)
     //     await  this.productRepo.save(product1)
+    //     area1.products=[product1,product2]
+    //     await this.areaRepo.save(area1)
     //     warehouse.products=[product1,product2]
     //     // warehouse.sourcing_price=product1
     //     warehouse.area=[area1]
@@ -93,24 +97,37 @@ var ProductsService = /** @class */ (function () {
     // }
     ProductsService.prototype.getProductAll = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var users;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, typeorm_2.getRepository(products_entity_1.Products)
-                            .createQueryBuilder("user")
-                            .getMany()];
-                    case 1:
-                        users = _a.sent();
-                        return [2 /*return*/, users];
-                }
+                return [2 /*return*/, this.productRepo.find()];
             });
         });
     };
-    ProductsService.prototype.getOne = function (id) {
+    ProductsService.prototype.filterProductsByWarehouse = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                return [2 /*return*/, this.warehouseRepo.findOne(id, {
-                        relations: ['products', 'area', 'sourceprice']
+                return [2 /*return*/, this.productRepo.find({
+                        where: { warehouse: { id: id } }
+                    })];
+            });
+        });
+    };
+    ProductsService.prototype.filterProductsByArea = function (id) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, this.productRepo.find({
+                        where: { area: { id: id } }
+                    })];
+            });
+        });
+    };
+    ProductsService.prototype.SearchProducts = function (query) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, this.productRepo.find({
+                        where: [
+                            { name: typeorm_2.ILike("%" + query + "%") },
+                            { description: typeorm_2.ILike("%" + query + "%") },
+                        ]
                     })];
             });
         });

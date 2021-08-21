@@ -16,12 +16,6 @@ let AppService = class AppService {
     getHello() {
         return 'Hello World!';
     }
-    getInventorry() {
-        return 'You have infinity iTEMS';
-    }
-    getProducts() {
-        return 'you have products';
-    }
 };
 AppService = __decorate([
     common_1.Injectable(),

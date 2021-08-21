@@ -10,5 +10,7 @@ export declare class ProductsService {
     private sourcepriceRepo;
     constructor(productRepo: Repository<Products>, areaRepo: Repository<Area>, warehouseRepo: Repository<Warehouse>, sourcepriceRepo: Repository<SourcePrice>);
     getProductAll(): Promise<Products[]>;
-    getOne(id: number): Promise<Warehouse>;
+    filterProductsByWarehouse(id: number): Promise<Products[]>;
+    filterProductsByArea(id: number): Promise<Products[]>;
+    SearchProducts(query: string): Promise<Products[]>;
 }

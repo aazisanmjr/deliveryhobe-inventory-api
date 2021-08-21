@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 exports.__esModule = true;
 exports.Area = void 0;
+var products_entity_1 = require("./../products/products.entity");
 var warehouse_entity_1 = require("./../warehouse/warehouse.entity");
 var typeorm_1 = require("typeorm");
 var Area = /** @class */ (function () {
@@ -22,6 +23,10 @@ var Area = /** @class */ (function () {
         typeorm_1.ManyToOne(function () { return warehouse_entity_1.Warehouse; }, function (Warehouse) { return Warehouse.area; }),
         typeorm_1.JoinColumn()
     ], Area.prototype, "warehouse");
+    __decorate([
+        typeorm_1.OneToMany(function () { return products_entity_1.Products; }, function (products) { return products.area; }),
+        typeorm_1.JoinColumn()
+    ], Area.prototype, "products");
     Area = __decorate([
         typeorm_1.Entity()
     ], Area);

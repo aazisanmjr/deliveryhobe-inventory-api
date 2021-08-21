@@ -1,5 +1,6 @@
+import { Products } from './../products/products.entity';
 import { Warehouse } from './../warehouse/warehouse.entity';
-import { Entity,ManyToOne, Column, PrimaryGeneratedColumn, JoinColumn } from "typeorm";
+import { Entity,ManyToOne,OneToMany, Column, PrimaryGeneratedColumn, JoinColumn } from "typeorm";
 
 @Entity()
 export class Area{
@@ -10,4 +11,7 @@ export class Area{
     @ManyToOne(()=> Warehouse, (Warehouse)=> Warehouse.area)
     @JoinColumn()
     warehouse: Warehouse
+    @OneToMany(()=> Products, (products)=> products.area)
+    @JoinColumn()
+    products: Products[]
 }

@@ -14,10 +14,4 @@ export class AppService {
     return 'Hello World!';
   }
  
-  getInventorry(): string {
-    return 'You have infinity iTEMS';
-  }
-  getProducts(): string {
-    return 'you have products';
-  }
 }

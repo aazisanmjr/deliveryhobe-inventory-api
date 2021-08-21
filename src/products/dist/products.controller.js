@@ -5,6 +5,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 exports.__esModule = true;
 exports.ProductsController = void 0;
 var common_1 = require("@nestjs/common");
@@ -15,9 +18,29 @@ var ProductsController = /** @class */ (function () {
     ProductsController.prototype.getProductAll = function () {
         return this.ProductsService.getProductAll();
     };
+    ProductsController.prototype.filterProducts = function (body) {
+        console.log(body);
+        if (body.byWareHouse)
+            return this.ProductsService.filterProductsByWarehouse(body.id);
+        if (body.byArea)
+            return this.ProductsService.filterProductsByArea(body.id);
+        return 'select filter type by area or warehouse';
+    };
+    ProductsController.prototype.SearchProducts = function (body) {
+        console.log(body);
+        return this.ProductsService.SearchProducts(body.query);
+    };
     __decorate([
-        common_1.Get('/all')
+        common_1.Get()
     ], ProductsController.prototype, "getProductAll");
+    __decorate([
+        common_1.Post(),
+        __param(0, common_1.Body())
+    ], ProductsController.prototype, "filterProducts");
+    __decorate([
+        common_1.Post('/search'),
+        __param(0, common_1.Body())
+    ], ProductsController.prototype, "SearchProducts");
     ProductsController = __decorate([
         common_1.Controller('products')
     ], ProductsController);
