@@ -9,7 +9,6 @@ exports.__esModule = true;
 exports.AppModule = void 0;
 var area_entity_1 = require("./area/area.entity");
 var warehouse_entity_1 = require("./warehouse/warehouse.entity");
-var inventory_entity_1 = require("./inventory/inventory.entity");
 var products_entity_1 = require("./products/products.entity");
 var common_1 = require("@nestjs/common");
 var config_1 = require("@nestjs/config");
@@ -34,7 +33,7 @@ var AppModule = /** @class */ (function () {
                     url: process.env.DATABASE_URL,
                     autoLoadEntities: true,
                     synchronize: true,
-                    entities: [products_entity_1.Products, inventory_entity_1.Inventory, warehouse_entity_1.Warehouse, area_entity_1.Area],
+                    entities: [products_entity_1.Products, warehouse_entity_1.Warehouse, area_entity_1.Area],
                     ssl: {
                         rejectUnauthorized: false
                     }

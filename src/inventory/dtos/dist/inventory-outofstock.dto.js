@@ -6,23 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.Inventory = void 0;
-var typeorm_1 = require("typeorm");
-var Inventory = /** @class */ (function () {
-    function Inventory() {
+exports.InventoryStockOutDto = void 0;
+var class_validator_1 = require("class-validator");
+var InventoryStockOutDto = /** @class */ (function () {
+    function InventoryStockOutDto() {
     }
     __decorate([
-        typeorm_1.PrimaryGeneratedColumn()
-    ], Inventory.prototype, "id");
+        class_validator_1.IsNumber()
+    ], InventoryStockOutDto.prototype, "warehouseId");
     __decorate([
-        typeorm_1.Column()
-    ], Inventory.prototype, "quantity");
-    __decorate([
-        typeorm_1.Column()
-    ], Inventory.prototype, "stockOut");
-    Inventory = __decorate([
-        typeorm_1.Entity()
-    ], Inventory);
-    return Inventory;
+        class_validator_1.IsArray()
+    ], InventoryStockOutDto.prototype, "productIds");
+    return InventoryStockOutDto;
 }());
-exports.Inventory = Inventory;
+exports.InventoryStockOutDto = InventoryStockOutDto;

@@ -9,7 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const area_entity_1 = require("./area/area.entity");
 const warehouse_entity_1 = require("./warehouse/warehouse.entity");
-const inventory_entity_1 = require("./inventory/inventory.entity");
 const products_entity_1 = require("./products/products.entity");
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
@@ -33,7 +32,7 @@ AppModule = __decorate([
                 url: process.env.DATABASE_URL,
                 autoLoadEntities: true,
                 synchronize: true,
-                entities: [products_entity_1.Products, inventory_entity_1.Inventory, warehouse_entity_1.Warehouse, area_entity_1.Area],
+                entities: [products_entity_1.Products, warehouse_entity_1.Warehouse, area_entity_1.Area],
                 ssl: {
                     rejectUnauthorized: false,
                 }

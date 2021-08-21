@@ -1,6 +1,5 @@
 import { Area } from './../area/area.entity';
 import { Warehouse } from './../warehouse/warehouse.entity';
-import { Inventory } from './../inventory/inventory.entity';
 import { Entity, Column, PrimaryGeneratedColumn,OneToOne, JoinColumn,ManyToOne} from "typeorm";
 
 @Entity()

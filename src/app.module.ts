@@ -1,6 +1,5 @@
 import { Area } from './area/area.entity';
 import { Warehouse } from './warehouse/warehouse.entity';
-import { Inventory } from './inventory/inventory.entity';
 import { Products } from './products/products.entity';
 import { Module } from '@nestjs/common';
 import {ConfigModule} from '@nestjs/config';
@@ -22,7 +21,7 @@ import { ProductsModule } from './products/products.module';
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
       synchronize: true,
-      entities:[Products,Inventory,Warehouse,Area],
+      entities:[Products,Warehouse,Area],
       ssl: {
           rejectUnauthorized: false,
       }
