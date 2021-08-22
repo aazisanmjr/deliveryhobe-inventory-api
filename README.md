@@ -23,6 +23,51 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
+## get all products localhost:3000/api/products method get
+## Products should be filterable by Area, or Warehouse localhost:3000/api/products method post
+	body for Area ```{ id:int Id of an area, byArea: true }``` eg ```{ "id":1, "byArea": true } ``` with this body products will be filltered by Mirpur area.
+  body for Warehouse ```{ id:int Id of an Warehouse { id: 3, byWareHouse: true }```  eg ```{ "id":1, "byArea": true } ``` with this body products will be filltered by Uttara warehouse
+
+## Product search localhost:3000/api/products/search method post 
+  body ```{"query":""}``` any string to search
+
+## checkout api localhost:3000/api/checkout  method post 
+body ```{ customerName!: string
+  customerPhone!: string
+  productIds!:[number]
+  quantities!:[number]
+}```
+for single product ```{
+    "customerName":"x",
+    "customerPhone":"325436363",
+    "productIds":[4] ,single array for one product
+    "quantities":[1]
+}```
+for single product ```{
+    "customerName":"x",
+    "customerPhone":"325436363",
+    "productIds":[4,3] //multiple products
+    "quantities":[1,3] //for product id 4 quantity is 1 for product id 3 quantity is 3
+}```
+
+## Inventory restock and mark stock out
+first sign in to this localhost:3000/api/inventory/signin endpoint using any below body
+choose one 
+```{"email":"mirpur@warehouse.com" ,"password":"mirpur123"} //available product id  1,2 
+{"email":"dhanmondi@warehouse.com" ,"password":"dhanmondi123"} //available product id  1,2 
+{"email":"uttara@warehouse.com" ,"password":"uttara123"} //available product id  1,2 ```
+then
+#for re stocking  products localhost:3000/api/inventory/restock method post body
+"{
+    "productIds":[1,2], //where the ids for the available products under this warehouse
+    "newInventories":[100,26] //product id 1 will have an inventory of 100 items and product id 2 will have an inventory of 26 items
+
+}"
+#for stocking out an products localhost:3000/api/inventory/stockout method post body
+```{
+    "productIds":[1,2], //where the ids for the available products under this warehouse
+}```
+
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
