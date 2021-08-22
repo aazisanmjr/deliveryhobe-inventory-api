@@ -4,13 +4,17 @@ import { Entity,ManyToOne,OneToMany, Column, PrimaryGeneratedColumn, JoinColumn 
 
 @Entity()
 export class Area{
+
     @PrimaryGeneratedColumn()
     id: number;
+
     @Column()
     name: string;
+
     @ManyToOne(()=> Warehouse, (Warehouse)=> Warehouse.area)
     @JoinColumn()
     warehouse: Warehouse
+    
     @OneToMany(()=> Products, (products)=> products.area)
     @JoinColumn()
     products: Products[]

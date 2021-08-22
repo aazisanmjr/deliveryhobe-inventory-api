@@ -1,10 +1,13 @@
-import { IsString, IsNumber, IsArray } from 'class-validator';
+import {IsNumber, IsArray } from 'class-validator';
 
 export class InventoryReStockDto {
-  @IsNumber()
-  warehouseId!: number
+
+  // @IsNumber()
+  // warehouseId!: number
+
   @IsArray()
   productIds!:[number]
+
   @IsArray()
   newInventories!:[number]
 }

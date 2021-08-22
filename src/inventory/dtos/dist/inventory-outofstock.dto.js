@@ -12,9 +12,6 @@ var InventoryStockOutDto = /** @class */ (function () {
     function InventoryStockOutDto() {
     }
     __decorate([
-        class_validator_1.IsNumber()
-    ], InventoryStockOutDto.prototype, "warehouseId");
-    __decorate([
         class_validator_1.IsArray()
     ], InventoryStockOutDto.prototype, "productIds");
     return InventoryStockOutDto;

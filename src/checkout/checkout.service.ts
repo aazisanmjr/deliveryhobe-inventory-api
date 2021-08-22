@@ -7,12 +7,15 @@ import { Repository } from 'typeorm';
 export class CheckoutService {
     
     constructor(@InjectRepository(Products) public productRepo: Repository<Products>){}
+
     async CheckoutConfirmAndUpdateInventory(productIds: [number],quantities:[number] ){
         const products = await this.productRepo.findByIds(productIds)
-        const inventories =  products.map(async (item,key)=>{
+       
+        products.map(async (item,key)=>{
             await this.productRepo.update(item.id, { inventory: item.inventory - quantities[key] })
             return item
         })
+        
         return this.productRepo.findByIds(productIds)
     }
 }

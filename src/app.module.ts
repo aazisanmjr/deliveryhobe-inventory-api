@@ -27,7 +27,7 @@ import { ProductsModule } from './products/products.module';
       }
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  // controllers: [AppController, AuthController],
+  // providers: [AppService],
 })
 export class AppModule {}

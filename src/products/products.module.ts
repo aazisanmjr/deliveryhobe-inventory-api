@@ -1,4 +1,4 @@
-import { SourcePrice } from './../sourceprice.entity';
+import { SourcePrice } from './../sourceprice/sourceprice.entity';
 import { Area } from './../area/area.entity';
 import { Warehouse } from './../warehouse/warehouse.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';

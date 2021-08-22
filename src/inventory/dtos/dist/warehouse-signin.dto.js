@@ -6,17 +6,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.InventoryReStockDto = void 0;
+exports.WarehouseSigninDto = void 0;
 var class_validator_1 = require("class-validator");
-var InventoryReStockDto = /** @class */ (function () {
-    function InventoryReStockDto() {
+var WarehouseSigninDto = /** @class */ (function () {
+    function WarehouseSigninDto() {
     }
     __decorate([
-        class_validator_1.IsArray()
-    ], InventoryReStockDto.prototype, "productIds");
+        class_validator_1.IsEmail()
+    ], WarehouseSigninDto.prototype, "email");
     __decorate([
-        class_validator_1.IsArray()
-    ], InventoryReStockDto.prototype, "newInventories");
-    return InventoryReStockDto;
+        class_validator_1.IsString()
+    ], WarehouseSigninDto.prototype, "password");
+    return WarehouseSigninDto;
 }());
-exports.InventoryReStockDto = InventoryReStockDto;
+exports.WarehouseSigninDto = WarehouseSigninDto;
