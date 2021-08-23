@@ -63,8 +63,8 @@ for multiple products ```{
 first sign in to this localhost:3000/api/inventory/signin endpoint using any below body
 choose one 
 	```{"email":"mirpur@warehouse.com" ,"password":"mirpur123"} //available product id  1,2 
-	{"email":"dhanmondi@warehouse.com" ,"password":"dhanmondi123"} //available product id  1,2 
-	{"email":"uttara@warehouse.com" ,"password":"uttara123"} //available product id  1,2```
+	{"email":"dhanmondi@warehouse.com" ,"password":"dhanmondi123"} //available product id  3,4 
+	{"email":"uttara@warehouse.com" ,"password":"uttara123"} //available product id  5,6```
 then
 #for re stocking  products
 localhost:3000/api/inventory/restock method post 
